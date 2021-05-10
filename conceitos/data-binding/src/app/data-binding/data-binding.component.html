@@ -1,0 +1,49 @@
+<section class='property-binding'>
+  <article>
+    <h3>Interpolation</h3>
+    <p>String renderizada com interpolação: {{ url }}</p>
+    <p>Resultado de 1 + 1 é: {{ 1 + 1 }}</p>
+    <p>Resultado de 1 + 1 não é: {{ 1 + 1 + getValor()}}</p>
+    <p>Curso de Angular e gosto do curso: {{ cursoAngular && getCurtirCurso() }}</p>
+  </article>
+
+  <article>
+    <h3>Property Binding</h3>
+    <!-- Interpolation -->
+    <img src="{{ urlImagem }}">
+
+    <!-- Property Binding -->
+    <img [src]="urlImagem">
+    <!-- O [] é um sintax sugar de <img bind-src="urlImagem"> -->
+  </article>
+
+  <article>
+    <h3>Class e Style Binding</h3>
+    <div>
+      Selecione uma variavelLocal:
+      <select #variavelLocal (change)="0">
+        <option value="alert-success">Sucesso</option>
+        <option value="alert-info">Info</option>
+        <option value="alert-warning">Alerta</option>
+        <option value="alert-danger">Error</option>
+      </select>
+      <br><br>
+
+      <!-- Class Interpolation Binding  -->
+      <div class="alert {{ variavelLocal.value }}" role="alert">
+        Texto colorido conforme valor do combobox.
+      </div>
+
+      <!-- Class Property Binding -->
+      <div class="alert" role="alert" [class.alert-success]="variavelLocal.value === 'alert-success'">Sucesso</div>
+      <div class="alert" role="alert" [class.alert-info]="variavelLocal.value === 'alert-info'">Info</div>
+      <div class="alert" role="alert" [class.alert-warning]="variavelLocal.value === 'alert-warning'">Alerta</div>
+      <div class="alert" role="alert" [class.alert-danger]="variavelLocal.value === 'alert-danger'">Erro</div>
+
+      <!-- Class Style Binding -->
+      <div class="alert alert-danger" role="alert" [style.display]="variavelLocal.value === 'alert-danger' ? 'block' : 'none'">
+        Esse texto somente aparece em caso de erro.
+      </div>
+    </div>
+  </article>
+</section>
