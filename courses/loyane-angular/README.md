@@ -138,7 +138,7 @@ Nesse caso, adicionamos a propriedade css diretamente através do objeto style. 
 
 #### Event Binding
 
-Nós conseguimos escutar algum evento que acontece no template, como um clique. E enviar esse evento para o componente.
+Nós conseguimos escutar algum evento que acontece no template, como um clique. E enviar esse evento para o componente executar alguma lógica.
 
 ```js
 # <template> -> {component}
@@ -147,18 +147,32 @@ Nós conseguimos escutar algum evento que acontece no template, como um clique. 
 
 #### Two-way Data Binding
 
-Conseguimos manter tanto o template, quanto o componente atualizados ao mesmo tempo.
+Conseguimos manter tanto o template, quanto o componente atualizados ao mesmo tempo. Para atualizar o template e o componente ao mesmo tempo, devemos utilizar o bind de eventos + o bind de propriedades juntos. 
 
 ```js
 # <template> <-> {component}
 [(ngModel)]="propriedade"
 ```
 
+Essa propriedade ngModel é uma representação de uma entidade. Essa entidade pode ser tanto um atributo símples, quanto um objeto.
+
+#### Input/Output Properties
+
+...
+
 ## **Referências**
 
 ### Documentações
 
+**Angular**
+
 - [Angular](https://angular.io/)
+- [Angular CLI](https://angular.io/cli)
+- [Update Angular](https://update.angular.io/)
+- [Angular Blog](https://blog.angular.io/)
+
+**Outras Documentações**
+
 - [TypeScript](https://www.typescriptlang.org/)
 - [Protractor](http://www.protractortest.org/)
 - [Karma](https://karma-runner.github.io)
@@ -167,6 +181,7 @@ Conseguimos manter tanto o template, quanto o componente atualizados ao mesmo te
 ### Cursos
 
 - [Curso de Angular - loyane.training](https://loiane.training/curso/angular)
+- [Udemy - Curso de Angular](https://www.udemy.com/course/formacao-angular-inicio-criando-7-projetos/)
 
 
 </div>
