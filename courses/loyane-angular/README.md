@@ -34,21 +34,77 @@ $ ng version
 
 ## **Angular CLI**
 
+### Criando um novo projeto:
+
 ```sh
-# Criando o projeto
 $ ng new nome_do_projeto
 
-# Executando o projeto
+# Criando um projeto com SASS
+$ ng new nome_do_projeto --style=sass
+
+# Criando um projeto com LESS
+$ ng new nome_do_projeto --style=less
+
+# Criando um projeto com Stylus
+$ ng new nome_do_projeto --style=stylus
+```
+
+### Executando o projeto:
+
+Para executar o projeto, você pode tanto utilizar o comando `ng serve`, que irá servir o browser com a sua aplicação Angular, ou você pode também utilizar/criar um script no seu package.json:
+
+```sh
 $ ng serve
+```
 
-# Criando um componente
-$ ng g component nome_do_componente
+### Criando um componente:
 
-# Criando um módulo
-$ ng g module nome_do_modulo
+\* o seu componente será gerado dentro do diretório `app`.
 
-# Criando um service
-$ ng g service nome_do_service
+```sh
+# Você pode utilizar o comando completo:
+$ ng generate component nome_do_componente
+
+# Ou você pode utilizar o alias:
+$ ng g c nome_do_componente
+```
+
+### Criando um Serviço (Service):
+
+```sh
+# Você pode utilizar o comando completo:
+$ ng generate service nome_do_servico
+
+# alias:
+$ ng g s nome_do_servico
+```
+
+PS: Se você quiser criar um serviço que seja relacionado a algum componente já criado, colocando esse serviço no mesmo diretório do componente, por exemplo, você pode especificar o caminho de onde será criado o serviço:
+
+```sh
+$ ng g s nome_do_componente/nome_do_servico
+```
+
+### Executando o lint
+
+```sh
+$ ng lint
+```
+
+Você pode verificar o style guide do angular através desse [link](https://angular.io/guide/styleguide).
+
+### Testes Unitários e Integração
+
+Esse comando irá rodar todos os arquivos `.spec.ts` contidos no repositório, que são os testes unitários.
+
+```sh
+$ ng test
+```
+
+Esse próximo comando, irá executar os testes de integração `e2e`:
+
+```sh
+$ ng e2e
 ```
 
 ## **Conceitos**
@@ -156,9 +212,144 @@ Conseguimos manter tanto o template, quanto o componente atualizados ao mesmo te
 
 Essa propriedade ngModel é uma representação de uma entidade. Essa entidade pode ser tanto um atributo símples, quanto um objeto.
 
-#### Input/Output Properties
+#### Input Properties
 
-...
+Podemos definir propriedades para os nossos componentes utilizando o decorator `@Input()`.
+
+```js
+import { Component, Input, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-curso',
+  templateUrl: './input-property.component.html',
+  styleUrls: ['./input-property.component.css']
+})
+export class InputPropertyComponent implements OnInit {
+
+  @Input() nome: string = '';
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+}
+```
+
+Agora, o nosso componente `<app-curso></app-curso>` possui uma propriedade `nome`.
+
+```html
+<app-curso [nome]="nomeDoCurso"></app-curso>
+```
+
+Nós podemos também, utilizar o parâmetro do decorator `@Input()` para definir qual será o nome dessa propriedade que será atribuido a variável do componente. Por exemplo:
+
+```js
+export class InputPropertyComponent implements OnInit {
+
+  @Input('nome') nomeCurso: string = '';
+  
+  ...
+```
+
+Terá o mesmo funcionamento do primeiro exemplo. A nossa variável no componente chama-se nomeCurso e no template se chama nome.
+
+A nível de curiosidade, é possível também definir essa variável que será exposta no template como propriedade de outra forma, utilizando o metadado inputs do decorator do componente:
+
+```js
+import { Component, Input, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-curso',
+  templateUrl: './input-property.component.html',
+  styleUrls: ['./input-property.component.css'],
+  // Utilizando essa propriedade inputs
+  inputs: ['outraVariavel:nome']
+})
+export class InputPropertyComponent implements OnInit {
+
+  // @Input() nome: string = '';
+  outraVariavel: string = '';
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+}
+
+#### Output Properties
+
+Podemos emitir um evento toda vez que algo mudar no componente, para isso, vamos utilizar o EventEmitter do Angular. Ao contrário do decorator `@Input()`, dessa vez vamos utilizar o @Output() para expor um valor/evento.
+
+```js
+	@Output() mudouValor = new EventEmitter();
+
+  incrementa() {
+    this.valor++;
+    this.mudouValor.emit({novoValor: this.valor});
+  }
+
+  decrementa() {
+    this.valor--;
+    this.mudouValor.emit({novoValor: this.valor});
+  }
+```
+
+Todas as vezes que a função incrementa ou decrementa for executada, nós vamos emitir um evento `emit`, para que algum componente pai possa escutar. Como parâmetro do emit, podemos passar o que quiser, desde uma string até um objeto complexo.
+
+Assim como no Input, podemos utilizar o metadado do decorator chamado outputs.
+
+```js
+@Component({
+  selector: 'app-curso',
+  templateUrl: './input-property.component.html',
+  styleUrls: ['./input-property.component.css'],
+  // Utilizando esse metadado
+  outputs: ['variavel']
+})
+```
+
+### Ciclo de Vida do Componente (Life-Cycle)
+
+#### OnInit / ngOnInit()
+
+O método ngOnInit() é chamado quando o nosso componente é inicializado. Nele é onde vamos realizar nossa chamada a API para buscar os dados a serem exibidos no nosso componente.
+
+
+Quando tempos input-property podemos utilizar o ngOnChanges no lugar do ngOnInit, pois se muda o input-property somente o ngOnChanges é disparado na mudança.
+
+- ngOnChanges => Antes #2 e quando valor property-binding é atualizado
+- ngOnInit => quando Componente é inicializado
+- ngDoCheck -> a cada ciclo de verificação de mudanças
+- ngAfterContentInit => depois de inserir conteúdo externo na view
+- ngAfterContentChecked => A cada verificação de conteúdo inserido
+- ngAfterViewChecked -> a cada verificação de conteúdo / conteúdo filho
+- ngOnDestroy -> antes da diretiva/componente ser destruído
+
+### Acesso ao DOM e ao Template com ViewChild
+
+Vamos começar criando uma variável local no nosso tempalte, lemabrando que para declarar a variável, basta utilizarmos #nomeDaVariavel no nosso elemento html.
+
+
+```html
+<input type="text" [value]="valor" readonly #campoInput>
+```
+
+Agora, vamos associar essa variável no nosso componente, utilizando o decorator ViewChild:
+
+```js
+export class OutputPropertyComponent implements OnInit {
+	@ViewChild('campoInput') campoValorInput: ElementRef;
+	...
+}
+```
+
+O ViewChild recebe como parâmetro, o nome da variável a qual nós queremos associar. O tipo será um `ElementRef` e ao fazermos essa referência, temos acesso a todos os atributos, eventos... de um elemento html, inclusive o `value`.
+
+Dessa forma, podemos alterar ou atribuir diretamente o value, por exemplo:
+
+```js
+this.campoValorInput.nativeElement.value = 200;
+```
 
 ## **Referências**
 

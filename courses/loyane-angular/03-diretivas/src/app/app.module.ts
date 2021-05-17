@@ -1,20 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { DataBindingComponent } from './data-binding/data-binding.component';
-import { InputPropertyComponent } from './input-property/input-property.component';
+import { DiretivaNgifComponent } from './diretiva-ngif/diretiva-ngif.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataBindingComponent,
-    InputPropertyComponent
+    DiretivaNgifComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
