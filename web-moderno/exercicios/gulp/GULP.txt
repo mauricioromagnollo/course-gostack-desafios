@@ -1,0 +1,36 @@
+https://gulpjs.com/
+https://babeljs.io/
+
+- Automatizar e melhorar o Workflow.
+- Otimizando o build de todos os arquivos JS, CSS, HTML do projeto. Otimizando e limpando comentários otimizando o tempo de resposta e carregamento do seu site e/ou aplicação.
+- Juntar vários arquivos e um só, retirar os espaços em branco, enviar esse arquivo final para outra pasta, iniciar um servidor web a partir do Gulp... essas são algumas funções do gulp.
+- Automatização do desenvolvimento e produção.
+- O gulp é utilizado também para converter TypeScript em JavaScript;
+
+- O 'babel' serve para fazer tradução das linguagens. Exemplo, traduzir uma funcionalidade nova do JavaScript para uma versão que será suportada por todos os browsers.
+    . O TypeScript faz isso, após escrever em typescript você transforma para JavaScript, pois o browser não sabe o que é typescript (.ts);
+
+- Verificar o package.json da pasta gulp/ para ver as dependências;
+    $ npm i
+        - para instalar todas as dependências do package.json;
+
+$   npm install gulp-cli -g
+$   npm install gulp -D
+$   npx -p touch nodetouch gulpfile.js
+$   gulp --help
+
+'gulpfile.js' -> Nome do arquivo padrão que o gulp irá procurar. Lembrar de criar com esse nome quando for desenvolver e utilizar o gulp.
+
+- Gulp é um fazedor de tarefas (tasks);
+
+pipe() função que vc vai encadeando funções uma na outra
+filter() filtrar os arquivos, startar servidor web, 
+
+
+ngulp
+
+# Instalando gulp e suas dependências
+# Automatizando tarefas com o gulp
+# Processando JavaScript
+# Processando TypeScript
+

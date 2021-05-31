@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Anatomia CSS</title>
+    <style>
+        
+        .seletor {
+            color: #fff;    /* valores de códigos de cores #fff */
+            font-size: 30px;    /* valores em pixels */
+            text-align: center;  /* valores pre-definidos 'center' */
+            border: solid 5px navy; /* shorthand property */   
+                /* testar 'dashed' no lugar de 'solid' */
+            font-family: Helvetica, sans-serif; /* Se não tiver a fonte Helvetica, irá pegar sans-serif como alternativa */
+            /* Funções */
+            width: calc(100% - 100px); /* De acordo com o tamanho da janela a borda será calculada */
+            background-color: rgb(34,153,189) /* (red,green,blue)*/
+        }
+
+        /* Usando uma pseudo-classe ':' 
+            * Será aplicada quando o usuário passar com o mouse
+            * Irá mudar a cor do background
+            * Outro exemplo: Links do google que já foram visitados, marcados com roxo... 
+        */
+        .seletor:hover {
+            background-color: orangered;
+        }
+
+        /* Usando um pseudo-elemento  '::' */
+        .seletor::first-letter {
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="seletor">Conteúdo</div>
+</body>
+
+</html>

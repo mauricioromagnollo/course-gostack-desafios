@@ -1,0 +1,62 @@
+------------------------------------------------------
+sudo npm i -g yarn
+sudo npm i -g create-react-app
+create-react-app nomeDoProjeto
+
+
+# Iniciar a aplicação
+$ npm start
+
+# Remover e Reinstalar:
+npm uninstall -g create-react-app
+npm uninstall -g yarn
+npm cache clean --force
+npm install -g create-react-app
+create-react-app cool-projecy-name
+------------------------------------------------------
+
+- O Webpack fica encapsulado no react;
+- Sintaxe: JSX
+- Programação baseada em componentes. Esses componentes incluem, 
+  html, css, js... ou seja, comportamento, estilo
+
+index.js
+  - Arquivo que irá importar e renderizar o React; 
+  - O elemento cujo ID='root' será capiturado;
+
+------------------------------------------------------
+# Criar componentes:
+------------------------------------------------------
+  - Você pode colocar o nome que quiser no componente na hora de importar:
+    Ex:
+      from OutroBotao import './componentes/Botao'
+    - O que não pode ser feito é o componente ser instanciado com letra minuscula
+    - É recomendável utilizar o mesmo nome do componente, assim como as classes;
+
+  - Podem ser baseados em função ou em classe;
+
+  Componente.jsx
+
+  É preciso importar o react dentro do componente: 
+  import React from 'react'
+
+  props = propriedades passada para o componente
+
+  com um parâmetro props é possível acessar propos.nome, props.idade 
+  <Tag nome="xonado" idade=24 />
+
+
+  /**
+ * O que ocorre no fundo é igual o jquery, algo como:
+ * $('<h1>').html('React 2')
+ * 
+ * É possível fazer algo como:
+ * 
+ * const elemento = <h1>React 2</h1>
+ * ReactDOM.render(elemento, document.getElementById('root'))
+ * 
+ */
+
+- O Fluxo de atualização do estado no React é unidirecional;
+
+Componente funcional não tem estado;

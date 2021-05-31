@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!-- <a href="https://google.com.br" onclick="navegarEm5s(event)">Google</a> -->
+        <!-- chamando o evento usando onclick 
+            * Existe vantagem em ter onclick diretamente no HTML devido a leitura de código,
+            porém, a desvantagem é que vc precisa de forma física escrever diretamente no link,
+            perdendo um pouco a flexibilidade;
+        -->
+        <a espera-um-pouco href="https://google.com.br">Google</a>
+    </div>
+    <script>
+        // Qual é o padrão de projeto mais utilizado na web?
+        // R: Padrão Observer (JavaScript é fortemente baseado no padrão Observer)
+        // Livro Design Patterns pasta library/CompSys/Patterns/ (mais de 23 padrões catalogados) 
+        
+        
+        // parando o comportamento padrão
+        function navegarEm5s(e) {
+            e.preventDefault()  // para o comportamento do clique padrão de redirecionamento
+            console.log('Saindo em 5s....')
+            setTimeout(() => {
+                window.location.href = e.target.href
+            }, 5000)
+        }
+
+        //const a = document.querySelector('a')   // se tiver mais tags a, basta usar o querySelectorAll('a')
+        //a.onclick = navegarEm5s // inserindo de forma dinâmica
+
+        /* O problema que ocorre em inserir de forma dinâmica é não ficar visível quando você olha pro código
+            html puro, que aquela tag tem comportamentos especiais. Uma forma de solucionar isso e tornar mais
+            visível no código html é utilizando atributos personalizados.
+            Com atributos fica nítido que o atributo será utilizado pelo JavaScript, logo, você sabe que 
+            existe um JavaScript que será responsável pelo comportamento da tag */
+
+        // melhor opção é essa, utilizando propriedade personalizada:
+        const a = document.querySelector('[espera-um-pouco]')
+        a.onclick = navegarEm5s
+
+    </script>
+</body>

@@ -1,0 +1,21 @@
+----------------------------------------------------------------
+# TÓPICOS DE APRENDIZADO:
+----------------------------------------------------------------
+* Bash
+    * Criar executável para terminal do linux /usr/bin;
+    * Padrões em desenvolvimento de script;
+
+* WEB
+    * Protocolo HTTP
+    * Ajax
+    * JSON
+    * JQuery
+    * Node
+    * ReactJS
+    * VueJS
+    * DOM
+    * HTML, CSS
+    * Testes (Mocha, Chai e Jasmine)
+
+* Padrões de Projeto
+

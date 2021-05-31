@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Entendendo jQuery</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Entendendo jQuery</h1>
+    <div>1</div>
+    <div>2</div>
+
+    <script>
+        /**
+         * Os elementos do get() não são os puros da DOM;
+         * devido ao padrão Decorator, que pega um elemento
+         * no caso o próprio Objeto da DOM e dentro dele
+         * há as operações da DOM.
+         * 
+         * Logo, $(). não são os objetos da DOM, são objetos 'decorados'. 
+         * 
+         * 
+         * !! O objeto puro da DOM, não tem a função hide..show...,
+         * pois essas funções são do JQuery() .. ou $()
+         */
+        const seg = sec => sec * 1000
+
+        console.log($('div').get(0))
+        console.log('-------------')
+        console.log($('div'))
+        console.log($.isEmptyObject())
+        // true
+        console.log(jQuery.inArray(3, [1,2,3]))
+        // 2
+        // retorna -1 ou o índice que foi encontrado
+        console.log($ === jQuery)
+        // true
+        
+        /**
+         * Criando um plugin em jQuery:
+         */
+        
+        $.fn.fundoVerde = function() {
+            this.css('background-color', 'green')
+            return this 
+        }
+        
+        // para retornar o próprio objeto
+        // e possibilitar encadear chamadas
+        // chaining, colocar em todas as 
+        // funções.. para ir trabalhando com
+        // chamadas
+        
+        // $('div').hide(seg(5)).show(seg(2)).fadeOut(seg(5))
+        $('body').fundoVerde().fadeOut(seg(1))
+        $('body').show(seg(1))
+        
+        $($('div').get(0)).fadeOut(seg(2))
+        
+        // $('div').get(0).fadeOut()
+
+    </script>
+</body>

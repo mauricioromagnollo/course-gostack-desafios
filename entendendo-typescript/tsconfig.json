@@ -1,0 +1,67 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    // "incremental": true,                   /*  */
+    "target": "es6",                          /* Diz qual a versão do JavaScript que será utilizada no arquivo compilado. */
+    "module": "commonjs",                     /* Geralmente alterado para esX, Ex: es6 */
+    "noEmitOnError": false,                    /* true = Não gerar o arquivo .js quando houver erro no arquivo .ts */
+    // "lib": [],                             /*  */
+    // "allowJs": true,                       /*  */
+    // "checkJs": true,                       /*  */
+    // "jsx": "preserve",                     /*  */
+    // "declaration": true,                   /*  */
+    // "declarationMap": true,                /*  */
+    "sourceMap": true,                        /* Podemos ver o arquivo .ts no Browser, ajuda no ambiente de desenvolvimento. Facilita a depuração no Browser. Quando true é possível através do console de desenvolvedor acessar o código original que gerou o JavaScript, principalmente para testes */
+    // "outFile": "./build/app.js",           /* Gerar um ÚNICO arquivo de saída, é incompatível com 'commonjs' */
+    // "outDir": "./build",                   /* Pasta de saída dos arquivos compilados */
+    // "rootDir": "./",                       /*  */
+    // "composite": true,                     /*  */
+    // "tsBuildInfoFile": "./",               /*  */
+    // "removeComments": true,                /* Remove os comentários do arquivo de saída */
+    // "noEmit": true,                        /*  */
+    // "importHelpers": true,                 /*  */
+    // "downlevelIteration": true,            /*  */
+    // "isolatedModules": true,               /*  */
+
+    /* Strict Type-Checking Options */
+    "strict": true,                           /*  */
+    "noImplicitAny": true,                    /* false = O compilador não irá reclamar quando uma variável for tipada implicitamente como any */
+    "strictNullChecks": true,                 /* Verifica se no fluxo do seu código pode gerar algum null indesejado. Verifica eventuais nulos que uma função ou variável pode gerar. Ex: Se uma variável for declarada e não receber nenhum valor */
+    // "strictFunctionTypes": true,           /*  */
+    // "strictBindCallApply": true,           /*  */
+    // "strictPropertyInitialization": true,  /*  */
+    // "noImplicitThis": true,                /*  */
+    // "alwaysStrict": true,                  /*  */
+
+    /* Additional Checks */
+    "noUnusedLocals": true,                   /* Informa que uma variável local não está sendo utilizada */
+    "noUnusedParameters": true,               /* Retorna Erro se algum parâmetro de função não estiver sendo utilizado. */
+    // "noImplicitReturns": true,             /*  */
+    // "noFallthroughCasesInSwitch": true,    /*  */
+
+    /* Module Resolution Options */
+    // "moduleResolution": "node",            /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    // "baseUrl": "./",                       /* Base directory to resolve non-absolute module names. */
+    // "paths": {},                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+    // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
+    // "typeRoots": [],                       /* List of folders to include type definitions from. */
+    // "types": [],                           /* Type declaration files to be included in compilation. */
+    // "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
+    "esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+    // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
+    // "allowUmdGlobalAccess": true,          /* Allow accessing UMD globals from modules. */
+
+    /* Source Map Options */
+    // "sourceRoot": "",                      /* Specify the location where debugger should locate TypeScript files instead of source locations. */
+    // "mapRoot": "",                         /* Specify the location where debugger should locate map files instead of generated locations. */
+    // "inlineSourceMap": true,               /* Emit a single file with source maps instead of having a separate file. */
+    // "inlineSources": true,                 /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
+
+    /* Experimental Options */
+    // "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
+    // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
+
+    /* Advanced Options */
+    "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
+  }
+}

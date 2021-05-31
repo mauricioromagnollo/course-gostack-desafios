@@ -1,0 +1,63 @@
+    <!--
+        * Usando a tag <source> você consegue inserir várias referências <source> como
+          utilizado embaixo. E, caso a primeira não funcione, a segunda será utilizada...
+          e assim por diante. Caso o browser não suporte .mp4, você pode referenciar também
+          o mesmo vídeo em .mkv, por exemplo...
+    -->
+
+<video id="meuVideo" width="800" height="450" controls autoplay constrolsList="nodownload">
+
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4">
+    Seu browser não suporta a tag de vídeo.
+    <!-- essa tag vídeo tem esse suporte de inserir mais fontes <source> e caso
+         uma falhe, a outra será acionada e assim por diante, até aparecer a mensagem
+        de erro -->
+</video>
+
+<div wm-progresso="meuVideo" class="progresso">
+    <div></div>
+</div>
+
+<div>
+    <button wm-play="meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<style>
+    .progresso {
+        height: 20px;
+        width: 500px;
+        border: solid 1px #444;
+        margin: 20px;
+    }
+
+    .progresso > div {
+        background-color: red;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        width: 0%;
+    }
+
+</style>
+
+<script>
+    function configurarVideo(id) {
+        const video = document.getElementById(id)
+        video.oncontextmenu = () => false // retirar opção de baixar o vídeo com botão direito
+        
+        document.querySelector(`[wm-play=${id}]`).onclick = e => video.play()
+        document.querySelector(`[wm-pause=${id}]`).onclick = e => video.pause()
+
+        // progress bar
+        setInterval(() => {
+            const percentual = (video.currentTime / video.duration) * 100
+            const valorDiv = document.querySelector(`[wm-progresso=${id}] > div`)
+            valorDiv.style.width = `${percentual}%`
+            valorDiv.innerHTML = `${percentual.toFixed(1)}%`
+        }, 500) // atualizar 2x a cada seg, 500 milisegundos
+    }
+
+    configurarVideo("meuVideo")
+</script>

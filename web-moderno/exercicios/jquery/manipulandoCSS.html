@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Manipulando CSS</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+
+    <h1>Manipulando CSS</h1>
+    <div id='div1'>1</div>
+    <div id='div2'>2</div>
+    <div id='resultado'></div>
+    <script>
+        // ler o atributo
+        const fonte = $('#div1').css('font-family')
+        // alterar
+        $('#resultado').append(`Fonte é ${fonte}`)
+
+        // alterando atributo, tamanho da fonte
+        $('#div1').css('font-size', '3em')
+        $('#div1').css({'font-size': '3.5em','color': 'yellow'})
+        // criando callback
+        $('#div1').css('font-size', function() {
+            return `${2*2}em`
+        })
+
+        $('#div2').addClass('destaque')
+
+        const temClasse = $('#div2').hasClass('destaque')
+        $('#resultado').append(`<br>Tem Classe? R: ${temClasse}`)
+
+        // remover uma classe
+        $('#div2').removeClass('destaque')
+        // // alternar classe (toggleClass)
+        $('#div2').toggleClass('destaque')
+        $('#div2').toggleClass('destaque')
+    </script>
+</body>

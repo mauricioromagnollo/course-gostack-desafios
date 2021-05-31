@@ -1,0 +1,54 @@
+
+https://getbootstrap.com
+
+- Bootstrap é um framework de CSS;
+- Depende do JQuery;
+- É possível instalar pelo NodeJS, é possível baixar os arquivos no site e referencia-los
+  na sua aplicação, é possível também ter acesso ao source files e pegar apenas algumas
+  partes necessárias do framework, é possível tbm pelo CDN no referenciando no próprio html
+  pegando os arquivos estáticos em outro servidor.
+- O bootstrap contém seus arquivos .css, .scss, .js ...
+
+
+npm i --save-dev bootstrap
+npm i --save-dev jquery@3.3.1 -E
+npm i --save-dev http-server 
+npm i --save-dev popper.js@1.14.3 -E
+
+Atalho VSCODE:
+(header.cabecalho>h1)+(aside>nav>ul>li)
+
+Classes do bootstrap:
+
+Where property is one of:
+
+    m - for classes that set margin
+    p - for classes that set padding
+
+Where sides is one of:
+
+    t - for classes that set margin-top or padding-top
+    b - for classes that set margin-bottom or padding-bottom
+    l - for classes that set margin-left or padding-left
+    r - for classes that set margin-right or padding-right
+    x - for classes that set both *-left and *-right
+    y - for classes that set both *-top and *-bottom
+    blank - for classes that set a margin or padding on all 4 sides of the element
+
+Where size is one of:
+
+    0 - for classes that eliminate the margin or padding by setting it to 0
+    1 - (by default) for classes that set the margin or padding to $spacer * .25
+    2 - (by default) for classes that set the margin or padding to $spacer * .5
+    3 - (by default) for classes that set the margin or padding to $spacer
+    4 - (by default) for classes that set the margin or padding to $spacer * 1.5
+    5 - (by default) for classes that set the margin or padding to $spacer * 3
+    auto - for classes that set the margin to auto
+
+
+Float = é mais recomendado utilizar o flex-box
+
+# Sistema de Grid de 12 colunas:
+    container-fluid
+    - O sistema de Grid do Bootstrap é baseado no Flex-Box;
+        Então é possível utilizar o flex-box como auxílio junto com bootstrap;

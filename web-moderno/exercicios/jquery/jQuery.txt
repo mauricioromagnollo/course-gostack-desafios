@@ -1,0 +1,25 @@
+* Biblioteca JavaScript extremamente popular
+* Ajuda na busca de elementos e alteração da DOM
+* Trabalha com manipulação de eventos, animações, Ajax...
+* É de fácil extensão usando plugins, possível criar Plugins
+* Pensado para trabalhar com conjunto de elementos 
+* Usa seletores CSS para buscas 
+* chaining => Encadeamento de chamadas 
+* Ajuda a manipular a DOM diretamente
+
+
+# Não é tão símples fazer arquitetura com jQuery,
+  os frameworks mais ativos com Angular, React, Vue,
+  simplificam e trabalham com Componentes, diferente
+  do jQuery que manipula diretamente a DOM.
+
+# PS: Porém, diversos sistemas aindas estão em jQuery
+  a maioria, inclusive...
+
+- O jQuery usa o padrão Decorator
+
+https://jquery.com
+$ npm i --save-dev jquery 
+
+- Colocar na página via CDN:
+http://code.jquery.com/

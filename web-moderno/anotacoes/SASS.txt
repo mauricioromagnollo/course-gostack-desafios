@@ -1,0 +1,8 @@
+https://sass-lang.com/
+
+- Pré-processador CSS (.scss);
+- Superset de CSS;
+
+- Algumas das funcionalidades extras mais importantes é a utilização de variáveis;
+
+

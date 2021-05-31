@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Classes</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        Classes
+    </div>
+    <script>
+        // Revisão
+
+        // no Browser, usar dir(param), podendo param ser qualquer coisa, para saber o tipo de dado que está vindo
+        
+        const classes = document.querySelector('div').classList /* Retorna um DOMTokenList */
+        // toggle -> se não tiver adiciona, se tiver substitui
+        classes.add('destaque')
+        classes.remove('destaque')
+        classes.toggle('destaque')
+        console.log(classes.contains('destaque') == true)
+        console.log('classes.length = ',classes.length)
+        classes.toggle('destaque')
+        console.log('classes.length = ',classes.length)
+
+        classes.add('destaque1')
+        classes.add('destaque2') /* destaque 1 e 2 não existem, só demonstração do add */
+        console.log('classes.length = ',classes.length)
+
+        for(let c of classes) {
+            console.log('c = ',c)
+        }
+
+        classes.forEach(c => console.log('c = ', c))
+
+        const emArray = Array.from(classes)
+        console.log('emArray = ', emArray)
+    </script>
+</body>
+
+</html>

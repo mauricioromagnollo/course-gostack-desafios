@@ -1,0 +1,4 @@
+https://www.typescriptlang.org/
+
+- typescript possui alguns recursos que não possuem em javascript como interface;
+- Você escreve o código de forma tipada, mais escalável e depois esse código é transformado em javascript. (.ts --> .js)

@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "name": "Maria Julia da Silva",
+      "email": "mjds@empresa.com"
+    },
+    {
+      "name": "Maurício Romagnoli",
+      "email": "xonado@gmail.com",
+      "id": 3
+    },
+    {
+      "name": "Teló",
+      "email": "slakdjalksdjask@slajkdlaksd",
+      "id": 4
+    },
+    {
+      "name": "Bruno Pinali",
+      "email": "bruno@gmail.com",
+      "id": 5
+    }
+  ]
+}
