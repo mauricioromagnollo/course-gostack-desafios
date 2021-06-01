@@ -1,0 +1,220 @@
+# Tipografia
+
+- O bootstrap utiliza a medida .rem por padrão e a font Helvetica Neue;
+
+Classes do Bootstrap:
+
+  class="display-1, display-2" => Aumenta consideravelmente o tamanho do nosso título;
+  class="lead" => Destaca o parágrafo (deixa um pouco diferente!);
+  class="text-center" => Essa propriedade pode ser utilizada tanto para texto, quanto 
+  para qualquer elemento que precisa ser centralizado.
+
+## Imagens
+
+<img class="img-thumbnail" />
+
+A classe thumbnail faz tipo um porta-retrato com a imagem, além de ajustar o tamanho,
+deixando a nossa imagem responsiva;
+
+
+<img class="rounded" />
+
+Faz a imagem ficar com as bordas arredondadas.
+
+<img class="img-fluid" />
+
+Faz a imagem ficar responsiva, quando reduzimos ao máximo o tamanho da tela.
+
+
+
+## Tabelas 
+
+<table class='table'>
+
+Modifica a tabela e insere o estilo do bootstrap.
+
+<table class='table table-striped'>
+
+Insere linhas coloridas intercaladas.
+
+<table class='table table-borderless'>
+
+Remove as linhas de bordas da tabela.
+
+<table class='table table-sm'>
+
+Cria uma tabela pequena, reduzido o espaçamento das linhas e o tamanho.
+
+<table class='table table-bordered'>
+
+Irá inserir todas as bordas (linhas) possíveis na tabela.
+
+<table class='table table-hover'>
+
+Destaca a linha da tabela quando passamos o mouse por cima.
+
+<table class='table table-dark'>
+
+Essa propriedade irá inverter a cor da tabela, deixando-a escura.
+
+Podemos alterar também, por exemplo, apenas o cabeçalho da tabela.
+
+<thead class='thead-dark'>
+
+Dessa forma, deixamos apenas o cabeçalho da tabela no modo dark.
+
+Assim como dark, podemos utilizar 'thead-light'.
+
+
+
+<tr class='table-active'>
+
+Irá colorir uma linha da tabela de cinza.
+
+Podemos colorir utilizando as cores: primary, danger, success, danger, warning, info...
+
+<tr class='table-primary'>
+
+Podemos também colorir, ao invés de usarmos table-cor, utilizarmos bg-cor. Ex: 
+
+<tr class='bg-primary'>
+
+Isso tratá uma cor mais forte.
+
+
+
+## Componentes 
+
+https://getbootstrap.com.br/docs/4.1/components/alerts/
+
+### Alert 
+
+<div class='alert alert-info'>
+
+Uma coisa interessante, é que você pode colocar um link, por exemplo, dentro 
+do seu alert e utilizar a classe 'alert-link'. Automaticamente o bootstrap vai 
+interpretar qual a cor utilizada no seu alert, para colorir o seu link. Ex: 
+
+    <div class="alert alert-success">
+      O programa foi executado com sucesso! <a class='alert-link' href="#">Clique aqui!</a>
+    </div>
+
+
+### Botões
+
+https://getbootstrap.com.br/docs/4.1/components/buttons/
+
+    <button class="btn btn-primary">Clique aqui</button>
+    <button class="btn btn-warning">Clique aqui</button>
+
+Você pode aplicar a classe 'btn' também para links e inputs, não somente a botões.
+
+<a class='btn btn-danger' href="">Clique aqui</a>
+<input type="submit" value="Clique Aqui" class='btn btn-success'>
+
+Você pode utilizar também os botões outline, da mesma forma.. porém, eles serão 
+preenchidos de cores apenas quando ocorrer um hover. 
+
+<button class="btn btn-outline-primary">Clique aqui</button>
+<button class="btn btn-outline-warning">Clique aqui</button>
+<a class='btn btn-outline-danger' href="">Clique aqui</a>
+<input type="submit" value="Clique Aqui" class='btn btn-outline-success'>
+
+
+Você pode definir o tamanho dos botões também utilizando classes do Bootstrap. 'btn-lg btn-sm'
+
+
+<button class='btn btn-info btn-lg'>Botão</button>
+<button class='btn btn-info btn-sm'>Botão</button>
+
+Podemos criar um button também que ocupa toda a linha da tela, por exemplo, utilizando 
+a propriedade 'btn-block'
+
+<button class='btn btn-primary btn-block'>Clique aqui</button>
+
+Você pode também desabilitar os botões de serem clicados, utilizando a propriedade disabled.
+
+<button class='btn btn-primary btn-block' disabled>Clique aqui</button>
+
+
+
+# FORMULÁRIOS
+
+https://getbootstrap.com/docs/4.1/components/forms/
+
+
+Você pode agrupar um formulário utilizando a classe form-group:
+
+      <div class="form-group">
+        <label>Digite a senha</label>
+        <input type="password" name="senha" placeholder="Senha" class='form-control' >
+      </div>
+
+Além de formatar os elementos do formulário com a classe form-control.
+
+
+O tamanho dos elementos podem ser definidos utilizando as variações: form-control-sm, por ex.
+
+
+
+##
+
+Bootstrap possui classes que gerenciam margens externas e externas:
+
+Como elas funcionam:
+{propriedade}{lado}-{ponto_de_quebra}-{tamanho}
+
+Propriedade:
+
+m - margem externa (margin)
+
+p - margem interna (padding)
+
+
+Lado: 
+
+t - margin-top ou padding-top
+
+b - margin-bottom ou padding-bottom
+
+l - margin-left ou padding-left
+
+r - margin-right ou padding-right
+
+x - padding-left e padding-right ou margin-left e margin-right
+
+y - padding-top e padding-bottom ou margin-top e margin-bottom
+
+blank - todos os lados de um elemento
+
+Ponto de quebra:
+
+xs (<=576px, deixe em branco para esse ponto de quebra) 
+sm (>=576px) 
+md (>=768px) 
+lg (>=992px) 
+xl (>=1200px))
+
+
+Tamanho:
+
+0 - margem 0
+
+1 - margem de .25rem (4px se o tamanho da fonte for 16px)
+
+2 - margem de .5rem (8px se o tamanho da fonte for 16px)
+
+3 - margem de 1rem (16px se o tamanho da fonte for 16px)
+
+4 - margem de 1.5rem (24px se o tamanho da fonte for 16px)
+
+5 - margem de 3rem (48px se o tamanho da fonte for 16px)
+
+auto - margem definida automaticamente
+
+
+Fonte: https://www.w3schools.com/bootstrap4/bootstrap_utilities.asp
+
+
+### CARDS 
+
