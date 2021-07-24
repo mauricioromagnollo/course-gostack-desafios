@@ -12,8 +12,9 @@
 
 - [Configuração do Ambiente](#configuração-do-ambiente)
 - [Angular CLI](#angular-cli)
-- [Conceitos](#conceitos)
-  - [Data Binding](#data-binding)
+- [Módulos](#módulos)
+- [Data Binding](#data-binding)
+- [Ciclo de Vida](#ciclo-de-vida)
 - [Referências](#referências)
 
 <br>
@@ -33,6 +34,8 @@ $ ng version
 - Extensão do VSCode [Angular Extension Pack](https://marketplace.visualstudio.com/items?itemName=loiane.angular-extension-pack).
 
 ## **Angular CLI**
+
+Estrutura do Projeto: https://www.youtube.com/watch?v=ICvq9YeDCh0&t=1120s
 
 ### Criando um novo projeto:
 
@@ -85,6 +88,17 @@ PS: Se você quiser criar um serviço que seja relacionado a algum componente j�
 $ ng g s nome_do_componente/nome_do_servico
 ```
 
+### Criando um Módulo (Módule)
+
+```sh
+# Você pode utilizar o comando completo:
+$ ng generate module nome_do_modulo
+
+# alias:
+$ ng g m nome_do_modulo
+```
+
+
 ### Executando o lint
 
 ```sh
@@ -107,20 +121,37 @@ Esse próximo comando, irá executar os testes de integração `e2e`:
 $ ng e2e
 ```
 
-## **Conceitos**
+## **Módulos**
 
-### Data Binding
+O módulo é utilizado para organizar e modularizar a aplicação. Você pode ter um diretório de produtos, por exemplo, com diferentes componentes e um módulo que vai gerenciar o que você vai expor ou não para fora desse diretório.
+
+O projeto angular, possui um módulo raíz `app.module` que irá gerenciar toda a aplicação.
+
+Metadados:
+
+- `declarations:` Todos os componentes, diretivas e pipes que nós queremos utilizar nesse módulo.
+- `imports:` Utilizado para importar outros módulos que queremos utilizar nesse, ou nos componentes que estão listados em declarations.
+- `exports:` Utilizado para expor um módulo.
+- `providers:` Onde colocamos os serviços que irão ficar disponíveis para os componentes declarados em declarations.
+- `bootstrap:` Encontrando apenas no módulo raíz da aplicação.
+
+> Tudo o que for declarado no módulo raíz da aplicação `app.module`, será visível para toda a aplicação.
+
+
+
+
+## **Data Binding**
 
 Data binding é uma forma de associar informações que estão no componente para o tempalte e vice-versa. Existem 4 formas de fazer o Data Binding:
 
-#### Interpolation 
+### Interpolation 
 
 ```js
 # {component} -> <template>
 {{ valor }}
 ```
 
-#### Property Binding
+### Property Binding
 
 ```
 # {component} -> <template>
@@ -149,7 +180,7 @@ O [] é um sintax sugar para o `bind-src`, por exemplo:
 
 Quando não existe uma propriedade no elemento, usa-se `[attr.colspan]`.
 
-#### Class e Style Binding
+### Class e Style Binding
 
 Também é uma forma de property binding, porém, no lugar de utilizar as variáveis do nosso Component, ou expressões, vamos utilizar CSS para adicionar ou remover classes do nosso elemento html.
 
@@ -192,7 +223,7 @@ Nesse caso, será adicionado uma classe css se a condição for verdadeira, ou s
 
 Nesse caso, adicionamos a propriedade css diretamente através do objeto style. Note que há um if ternário, onde será `display: block` se verdadeiro ou `display: none` se falso. 
 
-#### Event Binding
+### Event Binding
 
 Nós conseguimos escutar algum evento que acontece no template, como um clique. E enviar esse evento para o componente executar alguma lógica.
 
@@ -201,7 +232,7 @@ Nós conseguimos escutar algum evento que acontece no template, como um clique. 
 (evento)="handler"
 ```
 
-#### Two-way Data Binding
+### Two-way Data Binding
 
 Conseguimos manter tanto o template, quanto o componente atualizados ao mesmo tempo. Para atualizar o template e o componente ao mesmo tempo, devemos utilizar o bind de eventos + o bind de propriedades juntos. 
 
@@ -212,7 +243,7 @@ Conseguimos manter tanto o template, quanto o componente atualizados ao mesmo te
 
 Essa propriedade ngModel é uma representação de uma entidade. Essa entidade pode ser tanto um atributo símples, quanto um objeto.
 
-#### Input Properties
+### Input Properties
 
 Podemos definir propriedades para os nossos componentes utilizando o decorator `@Input()`.
 
@@ -275,8 +306,9 @@ export class InputPropertyComponent implements OnInit {
   ngOnInit(): void {
   }
 }
+```
 
-#### Output Properties
+### Output Properties
 
 Podemos emitir um evento toda vez que algo mudar no componente, para isso, vamos utilizar o EventEmitter do Angular. Ao contrário do decorator `@Input()`, dessa vez vamos utilizar o @Output() para expor um valor/evento.
 
@@ -308,9 +340,9 @@ Assim como no Input, podemos utilizar o metadado do decorator chamado outputs.
 })
 ```
 
-### Ciclo de Vida do Componente (Life-Cycle)
+## **Ciclo de Vida**
 
-#### OnInit / ngOnInit()
+### OnInit / ngOnInit()
 
 O método ngOnInit() é chamado quando o nosso componente é inicializado. Nele é onde vamos realizar nossa chamada a API para buscar os dados a serem exibidos no nosso componente.
 
