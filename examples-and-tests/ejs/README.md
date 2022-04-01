@@ -1,3 +1,0 @@
-# EJS
-
-https://ejs.co/
