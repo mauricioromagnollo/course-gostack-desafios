@@ -1,7 +1,0 @@
-# JavaScript:
-
-https://jquery.org/
-https://nodejs.org/
-koajs.com
-sailsjs.com
-expressjs.com
